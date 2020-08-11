@@ -31,7 +31,7 @@ class StudentAdapter(
             tempRow = inf.inflate(R.layout.student_list_item, null)
         }
 //        tempRow에는 절대 null일 가능성이 없다. => row에 절대 null이 아니라고 하면서(!!) 대입
-//        각각의 줄에 뿌려질 모양이 rowㅇ 담김
+//        각각의 줄에 뿌려질 모양이 row에 담김
         val row = tempRow!!
 
 //        최종 완성된 row를 뿌려달라고 리턴처리
