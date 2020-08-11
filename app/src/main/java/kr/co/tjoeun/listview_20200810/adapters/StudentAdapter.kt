@@ -41,6 +41,7 @@ class StudentAdapter(
         val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
 //        거주지 정보를 => (서울시 은평구) 형태로 가공해서 출력
         val addressTxt = row.findViewById<TextView>(R.id.addressTxt)
+        val ageAndGenderTxt = row.findViewById<TextView>(R.id.ageAndGenderTxt)
 
 //        상황에 맞게 (position에 맞게) 뿌려줄 근거 데이터 변수 (mList에서) 가져오기
         val data = mList[position]
@@ -49,6 +50,17 @@ class StudentAdapter(
         nameTxt.text = data.name
         addressTxt.text = "(${data.address})" //"(" + data.address +")"
 
+//        data 내부의 isMale, birthYear를 가지고 => 33세, 남성과 같이 가공하자
+//        성별이 어떻게 되는지?
+        var genderStr = "여성"
+        if (data.isMale) {
+            genderStr = "남성"
+        }
+
+//        나이가 어떻게 되는지 계산
+        val age = 2020 - data.birthYear + 1
+
+        ageAndGenderTxt.text = "${age}세, ${genderStr} "
 
 //        최종 완성된 row를 뿌려달라고 리턴처리
         return row
